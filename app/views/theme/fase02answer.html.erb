@@ -1,0 +1,42 @@
+<div class="container">
+
+<h1>fase02回答ページ</h1>
+
+  <%= form_for(@theme, url: fase02update_room_theme_path, html: { class: 'cardeditForm' }, local: true) do |f| %>
+      <% if @theme.errors.any? %>
+        <p class="text-danger">なにかトラブルです</p>
+      <% end %>
+       <!--　selectの選択用に配列を用意しておく -->
+        <% userArray = [@room.User01Name, @room.User02Name, @room.User03Name, @room.User04Name, @room.User05Name, @room.User06Name, @room.User07Name, @room.User08Name] %>
+        <% userArrayNew = userArray[0..@theme.Nop-1] %>
+
+      <div class="cardeditForm_title">
+          <%= @room.User01Name %>さん
+          <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
+          <%= f.select :Answer01, userArrayNew, {include_blank: true}, class: 'form-control' %>
+          <%= @room.User02Name %>さん
+          <%= f.select :Answer02, userArrayNew, {include_blank: true}, class: 'form-control' %>
+          <%= @room.User03Name %>さん
+          <%= f.select :Answer03, userArrayNew, {include_blank: true}, class: 'form-control' %>
+          <%= @room.User04Name %>さん
+          <%= f.select :Answer04, userArrayNew, {include_blank: true}, class: 'form-control' %>
+        <% if @theme.Nop == 5 || @theme.Nop == 6 || @theme.Nop == 7 || @theme.Nop == 8%>
+          <%= @room.User05Name %>さん
+          <%= f.select :Answer05, userArrayNew, {include_blank: true}, class: 'form-control' %>
+        <% end %>
+        <% if @theme.Nop == 6 || @theme.Nop == 7 || @theme.Nop == 8%>
+          <%= @room.User06Name %>さん
+          <%= f.select :Answer06, userArrayNew, {include_blank: true}, class: 'form-control' %>
+        <% end %>
+        <% if @theme.Nop == 7 || @theme.Nop == 8%>
+          <%= @room.User07Name %>さん
+          <%= f.select :Answer07, userArrayNew, {include_blank: true}, class: 'form-control' %>
+        <% end %>
+        <% if @theme.Nop == 8%>
+          <%= @room.User08Name %>さん
+          <%= f.select :Answer08, userArrayNew, {include_blank: true}, class: 'form-control' %>
+        <% end %>
+      </div>
+      <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
+  <% end %>
+</div>

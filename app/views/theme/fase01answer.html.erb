@@ -1,0 +1,15 @@
+<div class="container">
+
+<h1>fase01回答ページ</h1>
+
+<%= form_for(@theme, url: fase01update_room_theme_path, html: { class: 'cardeditForm' }, local: true) do |f| %>
+      <% if @theme.errors.any? %>
+        <p class="text-danger">なにかトラブルです</p>
+      <% end %>
+      <div class="cardeditForm_title">
+        <%= f.label :Fase01Answer %>
+        <%= f.text_field :Fase01Answer, autofocus: true, class: "form-control", placeholder: "答え" %>
+      </div>
+      <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
+    <% end %>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>インサイダーゲーム</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag('favicon.ico') %>
+  </head>
+
+  <body>
+    
+    <%= render partial: "layouts/header" %>
+    <% if flash[:notice] %>
+	  <p><%= flash[:notice] %></p>
+	<% end %>
+    
+    <%= yield %>
+    <%#= render partial: "layouts/footer" %>
+  </body>
+    <!-- FOOTER -->
+</html>

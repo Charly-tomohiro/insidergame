@@ -1,0 +1,73 @@
+<h1>fase02ゲーム中</h1>
+
+<h3>残り時間：<span id="Fase01Time"><%= @theme.Fase01Time %></span>秒</h3>
+
+<!DOCTYPE HTML>
+<html lang="ja-JP">
+<head>
+   <meta charset="UTF-8">
+   <script type="text/javascript">
+       var work_time = document.getElementById("Fase01Time").textContent;
+       var state = "work";
+       var timer;
+               
+       function timer_start(){
+           document.getElementById("current_time").innerText = work_time+" 秒";
+           timer = setInterval(time_count,1000);
+           document.getElementById("start").style.display = "none";
+           document.getElementById("stop").style.display = "inline";
+           document.getElementById("target").style.display = "inline";
+       }
+
+       function timer_stop(){
+           clearInterval(timer);
+           var str = document.getElementById("stop");
+           str.style.display = "none";
+           var str = document.getElementById("start");
+           str.style.display = "inline";
+           str.value = "Restart";
+           document.getElementById("end_time").value = work_time;
+           answer_box();
+       }
+
+       function time_count(){
+           work_time--;
+           document.getElementById("current_time").innerText = work_time +" 秒";
+           if(work_time <= 0) {
+               clearInterval(timer);
+               if(state == "work"){
+                   alert("終了です。回答ページに移動してください");
+               }
+               answer_box();
+           }
+           var str = document.getElementById("stop");
+           str.style.display = "inline";
+       }
+
+       function answer_box(){
+           var str = document.getElementById("target");
+           str.style.display = "inline";
+           
+       }
+   </script>
+
+   
+   <style type="text/css">
+        #container{width: 250px; margin: 30px auto; border: 1px solid #CCC; text-align: center; padding: 10px;}
+        #current_time{font-size: 36px; }
+        input[type="button"]{ width: 80px;}
+    </style>
+
+    <div id="container">
+        <div id="current_time"><%= @theme.Fase01Time %>秒</div>
+        <form action="">
+            <input id="start" type="button" value="START" onClick="timer_start();" /><br />
+            <input id="stop" style="display: none;" type="button" value="STOP" onClick="timer_stop(); answer_box()" />
+        </form>
+    </div>
+
+<div class="form-main" id="target" style="display: none"> 
+  <div class="form-input text-center">
+    <%= link_to '回答ページへ', fase02answer_room_theme_path(@room, @theme), class: "btn submitBtn" %>
+  </div>
+</div> 

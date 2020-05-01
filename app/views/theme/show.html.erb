@@ -1,0 +1,211 @@
+<div class='carddetailPage'>
+  <div class="container">
+      <div class="mx-auto" style="margin: 100px; width: 400px;">
+        <h3 class="text-center">各自の役職を確認してください</h3>
+        <!-- どこに01~08のデータが入っているかを確認する-->
+        <% roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06] %>
+        
+        <% roleArrayNew = roleArray[0..@theme.Nop-1]%>
+          <% user01Num = roleArrayNew.index("User01Role") %>
+          <% user02Num = roleArrayNew.index("User02Role") %>
+          <% user03Num = roleArrayNew.index("User03Role") %>
+          <% user04Num = roleArrayNew.index("User04Role") %>
+          <% user05Num = roleArrayNew.index("User05Role") %>
+          <% user06Num = roleArrayNew.index("User06Role") %>
+          <% user07Num = roleArrayNew.index("User07Role") %>
+          <% user08Num = roleArrayNew.index("User08Role") %>
+
+      <!-- 01~08までの役割を明示する -->
+      <% hashu = ["インサイダー（テーマ："+@theme.Title+"）", "マスター（テーマ："+@theme.Title+"）", "市民", "市民", "市民", "市民", "市民", "市民"] %>
+          <ul class="list-unstyled">
+              <li class="mx-auto" style="width: 100%">
+                  <div class="d-flex flex-row">
+                    <div class="btn btn-redBlack">
+                      <%= @room.User01Name %>
+                    </div>
+                    <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal01" data-keyboard="true">
+                      確認する
+                    </p>
+                  </div>
+                  <!-- モーダル・ダイアログ -->
+                  <div class="modal fade" id="Modal01" tabindex="-1">
+                    <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <h3 class="text-center p-mb-5">
+                            <%= hashu[user01Num] %>
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User02Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal02" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal02" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user02Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+              <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User03Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal03" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal03" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user03Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+              <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User04Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal04" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal04" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user04Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+            <% if !user05Num.nil? %>
+               <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User05Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal05" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal05" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user05Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+            <% end %>
+            <% if !user06Num.nil? %>
+              <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User06Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal06" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal06" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user06Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+            <% end %>
+            <% if !user07Num.nil? %>
+              <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User07Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal07" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal07" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user07Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+            <% end %>
+            <% if !user08Num.nil? %>
+              <li>
+                <div class="d-flex flex-row">
+                  <div class="btn btn-redBlack">
+                    <%= @room.User08Name %>
+                  </div>
+                  <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal08" data-keyboard="true">
+                    確認する
+                  </p>
+                </div>
+                <!-- モーダル・ダイアログ -->
+                <div class="modal fade" id="Modal08" tabindex="-1">
+                  <div class="modal-dialog"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <h3 class="text-center p-mb-5">
+                          <%= hashu[user08Num] %>
+                        </h3>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+      <div class="mt-5">
+      <%= link_to "ゲーム開始", fase01think_room_theme_path(@room, @theme), class: "btn btn-main w-100" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+ <div class="position-relative overflow-hidden p-5 p-md-5 m-md-5 text-center">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">
+    	<%= image_tag "main_title.png", :height => "100"%>
+    </h1>
+    <p class="lead font-weight-normal m-5">あなたは、操られている。</p>
+
+    <div class="" href="#">
+		<%= link_to "スタート", new_room_path, class: "btn btn-main w-50" %>
+	</div>
+	</p>
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+<div class="bg-other pt-5 pb-5">
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <i class="fab fa-teamspeak mb-4"></i>
+        <h2 class="mb-3">ゲームマスター</h2>
+        <p>進行役として、お題を知る。</br>
+         庶民と共にインサイダーを探せ。</p>
+
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+      	<i class="fas fa-user-secret mb-4" style="color: #c83360;"></i>
+        <h2 class="mb-3">インサイダー</h2>
+        <p>潜伏者として、お題を知る。</br>
+         正体を隠しながら、世論を操れ。</p>
+        
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <i class="fas fa-user mb-4"></i>
+        <h2 class="mb-3">庶民</h2>
+        <p>世論として、お題を当てよ。</br>
+         マスターと共にインサイダーを探せ。</p>
+        
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+  </div>
+</div>
+
+<div class="bg-main">
+    <!-- START THE FEATURETTES -->
+  <div class="container marketing">
+
+    <div class="row p-md-5">
+      <div class="col-md-7">
+        <h2 class="m-md-5"><span class="text-black font-weight-bold">インサイダーゲームとは</span></h2>
+        <p>庶民に紛れ込んだインサイダーは誰なのか、全員で議論します。庶民チーム（庶民&ゲームマスター）と、インサイダーの【どちらが勝つかの勝負】です。クイズと、正体探し。ふたつの楽しさが絶妙にマッチした、短時間でみんなが盛り上がれる会話ゲームになっています。</p>
+      </div>
+      <div class="col-md-5 text-center p-4">
+        <%= image_tag "kamen2.png", :height => "300"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-other" id="rule">
+    <!-- START THE FEATURETTES -->
+  <div class="container marketing">
+    <!-- <hr class="featurette-divider"> -->
+
+    <div class="row p-md-5">
+      <div class="col-md-7">
+        <h2 class="m-md-5"><span class="text-white font-weight-bold">ルール　①</span></h2>
+        <p>ゲームは２段階から構成されます。<br>
+          第一段階は【協力パート】で、クイズから始まります。<br>
+          お題を知っているマスターに、ほかの全員で自由に質問をしていきましょう。<br><br>
+（例）
+「それは生き物ですか？」「いいえ」<br>
+「100年前からありますか？」「はい」<br><br>
+
+このような質問を繰り返しながら、プレイヤーたちは正解にたどり着かなければなりません。<br>
+しかも、制限時間はたったの５分。答えられなければ全員がゲームに負けたことになってしまう、かなり難しい課題です。<br><br>
+
+ところが、たいていの場合、なぜかプレイヤーたちは答えにたどり着いてしまいます。なぜならたった一人だけ、正解を知っているインサイダーがまぎれこんでいるからです。<br>
+（正解にたどり着かなければ、全員がその時点で「負け」となります）<br><br>
+
+インサイダーは正体を隠しながら、徐々に正解に近づいていくような質問を繰り出し、場を思い通りの方向に導いていくのです。インサイダーは正体がバレると負けになってしまうので、あくまでさりげなく場を誘導していかなければなりません。
+</p>
+      </div>
+      <div class="col-md-5 text-center p-4">
+        <%= image_tag "ruleImage01.png", width: "100%" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-main">
+    <!-- START THE FEATURETTES -->
+  <div class="container marketing">
+
+    <div class="row p-md-5">
+      <div class="col-md-7">
+        <h2 class="m-md-5"><span class="text-black font-weight-bold">ルール　②</span></h2>
+        <p>第二段階は【対決パート】となります。<br>
+        クイズに正解したあと、誰がインサイダーなのかマスターを含めた全員で議論して探っていきます。<br>制限時間は５分です。<br><br>
+      投票による多数決により１名を選出しジャッジメントします。<br>
+      インサーダーを当てた場合は、「庶民&マスター」の勝利です。<br>インサイダーを当たられなかった場合は、「インサイダー」の勝利となります。</p>
+      </div>
+      <div class="col-md-5 text-center p-4">
+        <%= image_tag "ruleImage02.png", width: "100%"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</main>
+
+<!-- ＃リンクのスムーズスクロール -->
+    <script>
+      $(function(){
+        // #で始まるリンクをクリックしたら実行されます
+        $('a[href^="#"]').click(function() {
+          // スクロールの速度
+          var speed = 400; // ミリ秒で記述
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+    </script>

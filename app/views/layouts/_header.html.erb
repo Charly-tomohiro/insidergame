@@ -1,0 +1,18 @@
+<header class="header">
+  <nav class="nav">
+    <ul class="header_menu">
+      <li class="nav-link">
+        <%#= image_tag "eye_red.png", :height => "30"%>
+      </li>
+      <li class="header_menu_title left"><%= link_to "INSIDER", root_path, class: "nav-link" %>
+      <li>
+        <ul class="header_menu_inner">
+
+          <%# リストを作成するリンクは今後開発していくので、今は"#"にしておきます。 %>
+          <li><%= link_to "スタート", new_room_path, class: "nav-link roomNew" %></li>
+          <li class= "nav-link rule"><a href="#rule">ルール</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>

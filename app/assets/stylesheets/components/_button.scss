@@ -1,0 +1,74 @@
+.submitBtn {
+  background: #050100;
+  color: #fff;
+  width: 200px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 90px;
+  border: none;
+  transition: opacity .5s;
+  cursor: pointer;
+  &:hover {
+    opacity: .6;
+  }
+}
+
+/* 通常のボタン色 */
+.btn-main,
+.btn-main.disabled, .btn-main:disabled {
+  color: #242424;
+  background-color: #33c89b;
+  border-color: #33c89b;
+  font-weight: bold;
+}
+
+/* focusされた時の枠線の色 */
+.btn-main:focus, .btn-main.focus,
+.btn-main:not(:disabled):not(.disabled):active:focus, .btn-main:not(:disabled):not(.disabled).active:focus,
+.show > .btn-main.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(200, 123, 255, 0.5);
+}
+
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定） */
+.btn-main:hover {
+  color: #fff;
+  background-color: #812c46;
+  border-color: #812c46;
+}
+
+/* active時の色（hover時と同等かさらに濃いor暗めの色を指定） */
+.btn-main:not(:disabled):not(.disabled):active, .btn-main:not(:disabled):not(.disabled).active,
+.show > .btn-main.dropdown-toggle {
+  color: #fff;
+  background-color: #812c46;
+  border-color: #812c46;
+}
+
+/* 背景赤、中黒色のボタン */
+.btn-redBlack{
+      width: 150px;
+      border-radius: 0px;
+      text-align: center;
+      padding: 12px;
+      margin: 16px auto 0;
+      background: #c83360;
+      color: #242424;
+      font-weight: bold;
+  }
+
+/* 背景黒、中赤色のボタン */
+.btn-blackRed{
+      width: 150px;
+      border-radius: 0px;
+      text-align: center;
+      padding: 12px;
+      margin: 16px auto 0;
+      background: #242424;
+      color: #c83360;
+      font-weight: bold;
+  }
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定） */
+.btn-blackRed:hover {
+  color: #c83360;
+  background-color: #6a2a3d;
+}
