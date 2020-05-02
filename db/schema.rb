@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20200431112324) do
 
   create_table "themes", force: :cascade do |t|
     t.integer "room_id", null: false
+    t.string "Title", null: false
     t.string "Insider", default: "Insider", null: false
     t.string "Master", default: "Master", null: false
     t.string "Normal01", default: "Normal", null: false
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 20200431112324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "Fase01Time"
-    t.string "Title"
     t.integer "Nop"
     t.index ["room_id"], name: "index_themes_on_room_id"
   end
