@@ -1,12 +1,6 @@
 class CreateRooms < ActiveRecord::Migration[5.1]
   def change
     create_table :rooms do |t|
-
-   	  # ==========ここから追加する==========
-      t.string :title, null: false
-      t.references :user, foreign_key: true, null: false
-      # ==========ここまで追加する==========
-
       t.string :User01Name, null: false
       t.string :User02Name, null: false
       t.string :User03Name, null: false
