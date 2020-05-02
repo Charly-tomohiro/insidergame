@@ -55,6 +55,11 @@
       color: #242424;
       font-weight: bold;
   }
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定） */
+.btn-redBlack:hover {
+  color: #6a2a3d;
+  background-color: #c83360;
+}
 
 /* 背景黒、中赤色のボタン */
 .btn-blackRed{

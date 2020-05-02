@@ -1,15 +1,29 @@
-<div class="container">
-
-<h1>fase01回答ページ</h1>
-
-<%= form_for(@theme, url: fase01update_room_theme_path, html: { class: 'cardeditForm' }, local: true) do |f| %>
-      <% if @theme.errors.any? %>
-        <p class="text-danger">なにかトラブルです</p>
-      <% end %>
-      <div class="cardeditForm_title">
-        <%= f.label :Fase01Answer %>
-        <%= f.text_field :Fase01Answer, autofocus: true, class: "form-control", placeholder: "答え" %>
-      </div>
-      <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
-    <% end %>
+<div class='carddetailPage'>
+  <div class="container">
+      <div class="mx-auto" style="margin: 100px; width: 400px;">
+        <p class="text-center">マスターは下記のどちらかを選択し</br>
+                                ゲームを進行してください</p>
+      	<div class="d-flex flex-row">
+      		<div class="w-100">
+                 <%= link_to "制限時間オーバー", fase0102bad_room_theme_path(@room, @theme), class: "btn btn-redBlack w-100" %>
+        	</div>
+            <div class="w-100">
+                <%= link_to "次へ", fase02think_room_theme_path(@room, @theme), class: "btn btn-blackRed w-100" %>
+            </div>
+        </div>
+        
+         
+        <!--  テーマを答え合わせする場合 
+		<%= form_for(@theme, url: fase01update_room_theme_path, html: { class: 'cardeditForm' }, local: true) do |f| %>
+		      <% if @theme.errors.any? %>
+		        <p class="text-danger">なにかトラブルです</p>
+		      <% end %>
+		      <div class="cardeditForm_title">
+		        <%= f.hidden_field :Fase01Answer, value: @theme.Title, autofocus: true, class: "form-control" %>
+		      </div>
+		      <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
+		<% end %>
+		-->
+	 </div>
+  </div>
 </div>

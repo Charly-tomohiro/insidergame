@@ -116,7 +116,7 @@ class ThemeController < ApplicationController
         redirect_to fase0102bad_room_theme_url(@room, @theme), alert: "市民、残念！！インサイダーの勝利です"
       end
     else #最多要素が複数個あったら
-      redirect_to fase02answer_room_theme_url(@room, @theme), notice: "最多投票数が同率になりました。"+String(@maxAnswer)+"さんで決戦投票をしてください。"
+      redirect_to fase02answer_room_theme_url(@room, @theme), notice: "最多投票数が同率になりました。"+String(@maxAnswer)+"さんで決戦投票をしてください"
     end
   end
 

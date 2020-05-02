@@ -1,9 +1,8 @@
-<h1>fase01ゲーム中</h1>
-
-<!DOCTYPE HTML>
-<html lang="ja-JP">
-<head>
-   <meta charset="UTF-8">
+<div class='carddetailPage'>
+  <div class="container">
+      <div class="mx-auto" style="margin: 100px; width: 400px;">
+        <p class="text-center">STARTボタンを押して</br>
+                                マスターへの質問を開始してください</p>
    <script type="text/javascript">
        var work_time = 300;
        var state = "work";
@@ -31,6 +30,8 @@
        function time_count(){
            work_time--;
            document.getElementById("current_time").innerText = work_time +" 秒";
+                      document.getElementById( "timeNokori" ).value = work_time ;
+
            if(work_time <= 0) {
                clearInterval(timer);
                if(state == "work"){
@@ -45,8 +46,8 @@
        function answer_box(){
            var str = document.getElementById("target");
            str.style.display = "inline";
-           
        }
+       
    </script>
 
    
@@ -72,9 +73,8 @@
       <% end %>
 
       <div class="cardeditForm_title">
-          <p>※残り時間を記入↓※</p>
           <div class="mx-auto" style="width:100px;">
-            <%= f.number_field :Fase01Time, autofocus: true, class: "form-control", placeholder: 300 %>秒
+            <%= f.hidden_field :Fase01Time, autofocus: true, class: "form-control timeNokori", id: "timeNokori" %>
           </div>       
       </div>
       <div class="text-center"><%= f.submit "次へ", class: "submitBtn" %></div>

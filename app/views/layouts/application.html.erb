@@ -13,9 +13,13 @@
   <body>
     
     <%= render partial: "layouts/header" %>
-    <% if flash[:notice] %>
-	  <p><%= flash[:notice] %></p>
-	<% end %>
+
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %> text-center m-5">
+        <a class="close" data-dismiss="alert">×</a>
+        <h3><%= msg %></h3>
+      </div>
+    <% end %> 
     
     <%= yield %>
     <%#= render partial: "layouts/footer" %>

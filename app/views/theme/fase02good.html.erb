@@ -1,39 +1,50 @@
-<div class="container">
-  <h3>テーマ</h3>
-	  <li><%= @theme.Title %></li>
-  <h3>役割</h3>
-        <!-- どこに01~08のデータが入っているかを確認する-->
-        <% roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06] %>
-        <% roleArrayNew = roleArray[0..@theme.Nop-1]%>
-          <% user01Num = roleArrayNew.index("User01Role") %>
-          <% user02Num = roleArrayNew.index("User02Role") %>
-          <% user03Num = roleArrayNew.index("User03Role") %>
-          <% user04Num = roleArrayNew.index("User04Role") %>
-          <% user05Num = roleArrayNew.index("User05Role") %>
-          <% user06Num = roleArrayNew.index("User06Role") %>
-          <% user07Num = roleArrayNew.index("User07Role") %>
-          <% user08Num = roleArrayNew.index("User08Role") %>
+<div class='carddetailPage'>
+  <div class="container">
+      <div class="mx-auto" style="margin: 100px; width: 400px;">
+        <div class="text-center">
+          <h3>テーマ：<span style="font-weight: bold;"><%= @theme.Title %><span></h3>
+        </div>
+        
+        <div class="m-5">
+        <h3>役職</h3>
+              <!-- どこに01~08のデータが入っているかを確認する-->
+              <% roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06] %>
+              <% roleArrayNew = roleArray[0..@theme.Nop-1]%>
+                <% user01Num = roleArrayNew.index("User01Role") %>
+                <% user02Num = roleArrayNew.index("User02Role") %>
+                <% user03Num = roleArrayNew.index("User03Role") %>
+                <% user04Num = roleArrayNew.index("User04Role") %>
+                <% user05Num = roleArrayNew.index("User05Role") %>
+                <% user06Num = roleArrayNew.index("User06Role") %>
+                <% user07Num = roleArrayNew.index("User07Role") %>
+                <% user08Num = roleArrayNew.index("User08Role") %>
 
-      <!-- 01~08までの役割を明示する-->
-      <% hashu = ["インサイダー", "マスター", "市民", "市民", "市民", "市民", "市民", "市民"] %>
-            <li><%= @room.User01Name %> さん：<%= hashu[user01Num] %></li>
-            <li><%= @room.User02Name %> さん：<%= hashu[user02Num] %></li>
-            <li><%= @room.User03Name %> さん：<%= hashu[user03Num] %></li>
-            <li><%= @room.User04Name %> さん：<%= hashu[user04Num] %></li>
-          <% if !user05Num.nil? %>
-            <li><%= @room.User05Name %> さん：<%= hashu[user05Num] %></li>
-          <% end %>
-          <% if !user06Num.nil? %>
-            <li><%= @room.User06Name %> さん：<%= hashu[user06Num] %></li>
-          <% end %>
-          <% if !user07Num.nil? %>
-            <li><%= @room.User07Name %> さん：<%= hashu[user07Num] %></li>
-          <% end %>
-          <% if !user08Num.nil? %>
-            <li><%= @room.User08Name %> さん：<%= hashu[user08Num] %></li>
-          <% end %>
+            <!-- 01~08までの役割を明示する-->
+            <% hashu = ["インサイダー", "マスター", "市民", "市民", "市民", "市民", "市民", "市民"] %>
+                  <li><%= @room.User01Name %> さん：<%= hashu[user01Num] %></li>
+                  <li><%= @room.User02Name %> さん：<%= hashu[user02Num] %></li>
+                  <li><%= @room.User03Name %> さん：<%= hashu[user03Num] %></li>
+                  <li><%= @room.User04Name %> さん：<%= hashu[user04Num] %></li>
+                <% if !user05Num.nil? %>
+                  <li><%= @room.User05Name %> さん：<%= hashu[user05Num] %></li>
+                <% end %>
+                <% if !user06Num.nil? %>
+                  <li><%= @room.User06Name %> さん：<%= hashu[user06Num] %></li>
+                <% end %>
+                <% if !user07Num.nil? %>
+                  <li><%= @room.User07Name %> さん：<%= hashu[user07Num] %></li>
+                <% end %>
+                <% if !user08Num.nil? %>
+                  <li><%= @room.User08Name %> さん：<%= hashu[user08Num] %></li>
+                <% end %>
 
-  <div class="form-input text-center">
-    <%= link_to 'リトライ', new_room_theme_path(@room, @theme), class: "btn submitBtn" %>
+        <div class="form-input text-center">
+          <%= link_to 'リトライ', new_room_theme_path(@room, @theme), class: "btn btn-blackRed" %>
+        </div>
+   </div>
   </div>
+</div>
+
+<div class="container">
+  
 </div>
