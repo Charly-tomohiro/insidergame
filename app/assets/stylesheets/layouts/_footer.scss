@@ -1,4 +1,18 @@
-.footer {
-  background: #050100;
+* { 
+    margin: 0px; 
+    padding: 0px; 
+}
+
+footer {
+  margin-top: auto;
+  background: #242424;
   padding: 10px;
+  color: #c83360;
+}
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
