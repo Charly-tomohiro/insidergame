@@ -23,14 +23,14 @@
            var str = document.getElementById("start");
            str.style.display = "inline";
            str.value = "Restart";
-           document.getElementById("end_time").value = Number(work_time);
+           document.getElementById("end_time").value = work_time;
            answer_box();
        }
 
        function time_count(){
            work_time--;
            document.getElementById("current_time").innerText = work_time +" 秒";
-                      document.getElementById( "timeNokori" ).value = work_time ;
+                      document.getElementById( "timeNokori" ).value = Number(work_time) ;
 
            if(work_time <= 0) {
                clearInterval(timer);
