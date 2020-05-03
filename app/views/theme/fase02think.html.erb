@@ -1,11 +1,11 @@
 <div class='carddetailPage'>
   <div class="container">
       <div class="mx-auto w-75" style="margin-top: 150px;">
-
-        <p class="text-center">付与時間：<span id="Fase01Time"><%= 300-@theme.Fase01Time %></span> 秒</p>
+        <% fase02Time = 300 - @theme %>
+        <p class="text-center">付与時間：<span id="Fase01Time"><%= fase02Time %></span> 秒</p>
 
         <div id="container">
-            <div id="current_time"><%= 300-@theme.Fase01Time %> 秒</div>
+            <div id="current_time"><%= fase02Time %> 秒</div>
             <form action="">
                 <input id="start" type="button" value="START" onClick="timer_start();" /><br />
                 <input id="stop" style="display: none;" type="button" value="STOP" onClick="timer_stop(); answer_box()" />
