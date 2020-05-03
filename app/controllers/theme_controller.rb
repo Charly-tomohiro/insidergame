@@ -42,7 +42,6 @@ class ThemeController < ApplicationController
   def fase01answer #ファーズ01の回答中
     @theme = Theme.find(params[:id])
     @room = Room.find_by(id: params[:room_id])
-    @time = params[:endtime]
   end
 
   def fase01update #ファーズ01の回答のpost
@@ -73,6 +72,7 @@ class ThemeController < ApplicationController
   def fase02think #ファーズ02のゲーム中
     @theme = Theme.find(params[:id])
     @room = Room.find_by(id: params[:room_id])
+    @fase02Time = 300 - @theme.Fase01Time
   end
 
   def fase02answer #ファーズ02の回答中
