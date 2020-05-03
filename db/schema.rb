@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(version: 20200431112324) do
     t.string "Answer06"
     t.string "Answer07"
     t.string "Answer08"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "Fase01Time"
     t.integer "Nop"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_themes_on_room_id"
   end
 

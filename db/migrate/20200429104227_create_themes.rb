@@ -19,7 +19,9 @@ class CreateThemes < ActiveRecord::Migration[5.1]
       t.string :Answer05
       t.string :Answer06
       t.string :Answer07
-      t.string :Answer08
+      t.string :Answer08 
+      t.integer :Fase01Time
+      t.integer :Nop
       
       t.timestamps
     end
