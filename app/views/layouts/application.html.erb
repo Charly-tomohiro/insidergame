@@ -15,9 +15,9 @@
     <%= render partial: "layouts/header" %>
 
     <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name %> text-center m-5">
+      <div class="alert alert-<%= name %> text-center mt-5">
         <a class="close" data-dismiss="alert">×</a>
-        <h3><%= msg %></h3>
+        <p class="font-weight-bold text-white"><%= msg %></p>
       </div>
     <% end %> 
     

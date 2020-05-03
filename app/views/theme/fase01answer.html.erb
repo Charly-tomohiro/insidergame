@@ -1,11 +1,11 @@
 <div class='carddetailPage'>
   <div class="container">
-      <div class="mx-auto" style="margin: 100px; width: 400px;">
+      <div class="mx-auto w-75" style="margin-top: 150px">
         <p class="text-center">マスターは下記のどちらかを選択し</br>
                                 ゲームを進行してください</p>
       	<div class="d-flex flex-row">
       		<div class="w-100">
-                 <%= link_to "制限時間オーバー", fase0102bad_room_theme_path(@room, @theme), class: "btn btn-redBlack w-100" %>
+                 <%= link_to "時間オーバー", fase0102bad_room_theme_path(@room, @theme), class: "btn btn-redBlack w-100" %>
         	</div>
             <div class="w-100">
                 <%= link_to "次へ", fase02think_room_theme_path(@room, @theme), class: "btn btn-blackRed w-100" %>

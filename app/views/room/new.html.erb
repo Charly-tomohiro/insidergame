@@ -1,27 +1,31 @@
-<div class="listnewPage">
+<div class='carddetailPage'>
   <div class="container">
-    <%= form_with model: @room, url: { action: :create }, class: "new_list", local: true do |f| %>
-      <h3 class="m-md-5 text-center">プレイヤー人数は4~8名です<br>名前を入力してください</h3>
-      <% if @room.errors.any? %>
-        <p class="text-danger">プレイヤー人数は4~8名です</p>
+    <div class="mx-auto w-75" style="margin-top: 150px ">
+      <div class="text-center">
+          <p class="mt-5 text-center">プレイヤー人数は4~8名です<br>名前を入力してください</p>
+        </div>
+      <%= form_with model: @room, url: { action: :create }, class: "new_list mt-5", local: true do |f| %>
+        <% if @room.errors.any? %>
+          <p class="text-danger">プレイヤー人数は4~8名です</p>
+        <% end %>
+        <%= f.label :プレイヤー01 %>
+        <%= f.text_field :User01Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー1名前", required: true %>
+        <%= f.label :プレイヤー02 %>
+        <%= f.text_field :User02Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー2名前", required: true %>
+        <%= f.label :プレイヤー03 %>
+        <%= f.text_field :User03Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー3名前", required: true %>
+        <%= f.label :プレイヤー04 %>
+        <%= f.text_field :User04Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー4名前", required: true %>
+        <%= f.label :プレイヤー05 %>
+        <%= f.text_field :User05Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー5名前" %>
+        <%= f.label :プレイヤー06 %>
+        <%= f.text_field :User06Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー6名前" %>
+        <%= f.label :プレイヤー07 %>
+        <%= f.text_field :User07Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー7名前" %>
+        <%= f.label :プレイヤー08 %>
+        <%= f.text_field :User08Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー8名前" %>
+        <div class="text-center mt-5"><%= f.submit "次へ", class: "submitBtn" %></div>
       <% end %>
-      <%= f.label :プレイヤー01 %>
-      <%= f.text_field :User01Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー1名前", required: true %>
-      <%= f.label :プレイヤー02 %>
-      <%= f.text_field :User02Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー2名前", required: true %>
-      <%= f.label :プレイヤー03 %>
-      <%= f.text_field :User03Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー3名前", required: true %>
-      <%= f.label :プレイヤー04 %>
-      <%= f.text_field :User04Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー4名前", required: true %>
-      <%= f.label :プレイヤー05 %>
-      <%= f.text_field :User05Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー5名前" %>
-      <%= f.label :プレイヤー06 %>
-      <%= f.text_field :User06Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー6名前" %>
-      <%= f.label :プレイヤー07 %>
-      <%= f.text_field :User07Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー7名前" %>
-      <%= f.label :プレイヤー08 %>
-      <%= f.text_field :User08Name, autofocus: true, class: "form-control listName", placeholder: "プレイヤー8名前" %>
-      <div class="text-center"><%= f.submit "次へ", class: "submitBtn" %></div>
-    <% end %>
+    </div>
   </div>
 </div>

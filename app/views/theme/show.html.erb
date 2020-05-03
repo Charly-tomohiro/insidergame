@@ -1,7 +1,7 @@
 <div class='carddetailPage'>
   <div class="container">
-      <div class="mx-auto" style="margin: 100px; width: 400px;">
-        <h3 class="text-center">各自の役職を確認してください</h3>
+      <div class="mx-auto　w-75" style="margin-top: 150px">
+        <p class="text-center">各自の役職を確認してください</p>
         <!-- どこに01~08のデータが入っているかを確認する-->
         <% roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06] %>
         
@@ -18,8 +18,8 @@
       <!-- 01~08までの役割を明示する -->
       <% hashu = ["インサイダー（テーマ："+@theme.Title+"）", "マスター（テーマ："+@theme.Title+"）", "市民", "市民", "市民", "市民", "市民", "市民"] %>
           <ul class="list-unstyled">
-              <li class="mx-auto" style="width: 100%">
-                  <div class="d-flex flex-row">
+              <li>
+                  <div class="d-flex justify-content-around">
                     <div class="btn btn-redBlack">
                       <%= @room.User01Name %>
                     </div>
@@ -203,8 +203,8 @@
               </li>
             <% end %>
           </ul>
-      <div class="mt-5">
-      <%= link_to "ゲーム開始", fase01think_room_theme_path(@room, @theme), class: "btn btn-main w-100" %>
+      <div class="mt-5 d-flex justify-content-center">
+      <%= link_to "ゲーム開始", fase01think_room_theme_path(@room, @theme), class: "btn btn-main px-5" %>
       </div>
     </div>
   </div>
