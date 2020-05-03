@@ -72,7 +72,7 @@ class ThemeController < ApplicationController
   def fase02think #ファーズ02のゲーム中
     @theme = Theme.find(params[:id])
     @room = Room.find_by(id: params[:room_id])
-    @fase02Time = 300 - @theme.Fase01Time
+    @fase02Time = 300 - @theme.Fase01Time.to_i
   end
 
   def fase02answer #ファーズ02の回答中
