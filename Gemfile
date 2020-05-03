@@ -58,3 +58,4 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.9.0'
 
 gem 'pg', group: :production  # この1行を追加
+gem 'sitemap_generator' #sitemapを作る

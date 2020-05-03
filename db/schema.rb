@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20200431112324) do
     t.string "Answer06"
     t.string "Answer07"
     t.string "Answer08"
-    t.integer "timeFase01"
+    t.integer "Fase01Time"
     t.integer "Nop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
