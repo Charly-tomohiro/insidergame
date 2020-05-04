@@ -16,51 +16,67 @@
             <div class="cardeditForm_title">
               <ul>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User01Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User01Name %>さん：<span id="user01select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer01, userArrayNew, {include_blank: true}, class: 'form-control', required: true%>
+                    <%= f.select :Answer01, userArrayNew, {include_blank: true}, class: 'form-control user01answer', required: true%>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user01" value= "<%= userArray[0] %>" id="user01Name" >
                   </li>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User02Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User02Name %>さん：<span id="user02select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer02, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer02, userArrayNew, {include_blank: true}, class: 'form-control user02answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user02" value= "<%= userArray[1] %>" id="user02Name" >
                   </li>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User03Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User03Name %>さん：<span id="user03select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer03, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer03, userArrayNew, {include_blank: true}, class: 'form-control user03answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user03" value= "<%= userArray[2] %>" id="user03Name" >
                   </li>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User04Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User04Name %>さん：<span id="user04select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer04, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer04, userArrayNew, {include_blank: true}, class: 'form-control user04answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user04" value= "<%= userArray[3] %>" id="user04Name" >
                   </li>
                 <% if @theme.Nop == 5 || @theme.Nop == 6 || @theme.Nop == 7 || @theme.Nop == 8%>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User05Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User05Name %>さん：<span id="user05select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer05, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer05, userArrayNew, {include_blank: true}, class: 'form-control user05answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user05" value= "<%= userArray[4] %>" id="user05Name" >
                   </li>
                 <% end %>
                 <% if @theme.Nop == 6 || @theme.Nop == 7 || @theme.Nop == 8%>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User06Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User06Name %>さん：<span id="user06select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer06, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer06, userArrayNew, {include_blank: true}, class: 'form-control user06answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user06" value= "<%= userArray[5] %>" id="user06Name" >
                   </li>
                 <% end %>
                 <% if @theme.Nop == 7 || @theme.Nop == 8%>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User07Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User07Name %>さん：<span id="user07select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer07, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer07, userArrayNew, {include_blank: true}, class: 'form-control user07answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user07" value= "<%= userArray[6] %>" id="user07Name" >
                   </li>
                 <% end %>
                 <% if @theme.Nop == 8%>
                   <li class="d-flex flex-row">
-                    <div class="w-100 text-center"><%= @room.User08Name %>さん：</div>
+                    <div class="w-100 text-center"><%= @room.User08Name %>さん：<span id="user08select_num">0 票</span></div>
                     <%# userArrayNew.delete(@room.User01Name) %> <!-- Aさんのみ除くメモ -->
-                    <%= f.select :Answer08, userArrayNew, {include_blank: true}, class: 'form-control', required: true %>
+                    <%= f.select :Answer08, userArrayNew, {include_blank: true}, class: 'form-control user08answer', required: true %>
+                    <!-- JSに値を送る用 -->
+                    <input type="hidden" name="user08" value= "<%= userArray[7] %>" id="user08Name" >
                   </li>
                 <% end %>
               </div>
@@ -72,3 +88,47 @@
       </div>
   </div>
 </div>
+
+<script type="text/javascript">
+ $(function() {
+    $('.form-control').change(function() {
+        const user01Name = $('input#user01Name').val();
+        const user02Name = $('input#user02Name').val();
+        const user03Name = $('input#user03Name').val();
+        const user04Name = $('input#user04Name').val();
+        const user05Name = $('input#user05Name').val();
+        const user06Name = $('input#user06Name').val();
+        const user07Name = $('input#user07Name').val();
+        const user08Name = $('input#user08Name').val();
+
+        var user01answer = $('.user01answer').val();
+        var user02answer = $('.user02answer').val();
+        var user03answer = $('.user03answer').val();
+        var user04answer = $('.user04answer').val();
+        var user05answer = $('.user05answer').val();
+        var user06answer = $('.user06answer').val();
+        var user07answer = $('.user07answer').val();
+        var user08answer = $('.user08answer').val();
+
+        var array = [user01answer, user02answer, user03answer, user04answer, user05answer, user06answer, user07answer, user08answer];
+
+        var num01 = array.filter((n => n == user01Name)).length;
+        $('span#user01select_num').text(num01 +" 票" );
+        var num02 = array.filter((n => n == user02Name)).length;
+        $('span#user02select_num').text(num02 +" 票" );
+        var num03 = array.filter((n => n == user03Name)).length;
+        $('span#user03select_num').text(num03 +" 票" );
+        var num04 = array.filter((n => n == user04Name)).length;
+        $('span#user04select_num').text(num04 +" 票" );
+        var num05 = array.filter((n => n == user05Name)).length;
+        $('span#user05select_num').text(num05 +" 票" );
+        var num06 = array.filter((n => n == user06Name)).length;
+        $('span#user06select_num').text(num06 +" 票" );
+        var num07 = array.filter((n => n == user07Name)).length;
+        $('span#user07select_num').text(num07 +" 票" );
+        var num08 = array.filter((n => n == user08Name)).length;
+        $('span#user08select_num').text(num08 +" 票" );
+
+    });
+});
+</script>>
