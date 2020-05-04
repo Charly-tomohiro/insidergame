@@ -15,10 +15,50 @@
       <!-- User01~08Roleをプレイヤー人数に合わせて取り出しシャッフルして格納する -->
       <% userRole = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
 
-      <% if nop >= 5 %>
-        <%= f.check_box :CrazyCheck, {class: "selectOption"}, "1", "0" %>
-        <%= f.check_box :TagCheck, {class: "selectOption"}, "1", "0" %>
-        <%= f.check_box :PeaceCheck, {class: "selectOption"}, "1", "0" %>
+      <% if nop == 4 %>
+        <% userRoleArray = userRole[0..3].shuffle%>
+        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
+        <%= f.hidden_field :Master, value: userRoleArray[1] %>
+        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
+        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
+
+      <% elsif nop == 5 %>
+        <% userRoleArray = userRole[0..4].shuffle%>
+        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
+        <%= f.hidden_field :Master, value: userRoleArray[1] %>
+        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
+        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
+        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
+
+      <% elsif nop == 6 %>
+        <% userRoleArray = userRole[0..5].shuffle%>
+        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
+        <%= f.hidden_field :Master, value: userRoleArray[1] %>
+        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
+        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
+        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
+        <%= f.hidden_field :Normal04, value: userRoleArray[5] %>
+
+      <% elsif nop == 7 %>
+        <% userRoleArray = userRole[0..6].shuffle%>
+        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
+        <%= f.hidden_field :Master, value: userRoleArray[1] %>
+        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
+        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
+        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
+        <%= f.hidden_field :Normal04, value: userRoleArray[5] %>
+        <%= f.hidden_field :Normal05, value: userRoleArray[6] %>
+
+      <% elsif nop == 8 %>
+        <% userRoleArray = userRole[0..7].shuffle%>
+        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
+        <%= f.hidden_field :Master, value: userRoleArray[1] %>
+        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
+        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
+        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
+        <%= f.hidden_field :Normal04, value: userRoleArray[5] %>
+        <%= f.hidden_field :Normal05, value: userRoleArray[6] %>
+        <%= f.hidden_field :Normal06, value: userRoleArray[7] %>
 
       <% else %>
         <p>トラブルが起きました！ERROR！</p>
