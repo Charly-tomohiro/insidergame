@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       		get 'fase02answerBranch'
       		get 'fase02good'
       		get 'fase0102bad'
+          get 'new01'
+          get 'new02'
     	end
     end
   end

@@ -14,6 +14,18 @@ class ThemeController < ApplicationController
     @theme.theme_to_words.build
   end
 
+  def new01
+    @theme = Theme.new
+    @room = Room.find_by(id: params[:room_id])
+    @theme.theme_to_words.build
+  end
+
+  def new02
+    @theme = Theme.new
+    @room = Room.find_by(id: params[:room_id])
+    @theme.theme_to_words.build
+  end
+
   def create
     @theme = Theme.new(theme_params)
     @room = Room.find_by(id: params[:room_id])

@@ -16,17 +16,10 @@
       <% userRole = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
 
       <% if nop >= 5 %>
-        <p class="text-center">5人以上の場合、下記のオプションを選択できます</p>
-        <ul>
-          <li>クレイジー：
-            <%= f.check_box :CrazyCheck, {class: "selectOption"}, "1", "0" %>
-          </li>
-          <li>タッグ：
-            <%= f.check_box :TagCheck, {class: "selectOption"}, "1", "0" %>
-          </li>
-          <li>ノーインサイダー：
-            <%= f.check_box :PeaceCheck, {class: "selectOption"}, "1", "0" %>
-          </li>
+        <%= f.check_box :CrazyCheck, {class: "selectOption"}, "1", "0" %>
+        <%= f.check_box :TagCheck, {class: "selectOption"}, "1", "0" %>
+        <%= f.check_box :PeaceCheck, {class: "selectOption"}, "1", "0" %>
+
       <% else %>
         <p>トラブルが起きました！ERROR！</p>
       <% end %>  
