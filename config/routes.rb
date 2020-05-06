@@ -16,7 +16,8 @@ Rails.application.routes.draw do
       		patch 'fase02update'
       		get 'fase02answerBranch'
       		get 'fase02good'
-      		get 'fase0102bad'
+          get 'fase02bad'
+      		get 'fase01bad'
           get 'new01'
           get 'new02'
     	end

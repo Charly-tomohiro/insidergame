@@ -72,7 +72,7 @@ class ThemeController < ApplicationController
     if @theme.Fase01Answer == @theme.Title
       redirect_to fase01good_room_theme_url(@room, @theme)
     else
-      redirect_to fase0102bad_room_theme_url(@room, @theme), alert: "残念！！全員の負けです"
+      redirect_to fase01bad_room_theme_url(@room, @theme), alert: "残念！！全員の負けです"
     end
   end
 
@@ -125,7 +125,7 @@ class ThemeController < ApplicationController
       if @temp == @theme.Insider
         redirect_to fase02good_room_theme_url(@room, @theme), alert: "市民、勝利！！　インサイダーの負けです"
       else
-        redirect_to fase0102bad_room_theme_url(@room, @theme), alert: "市民、残念！！　インサイダーの勝利です"
+        redirect_to fase02bad_room_theme_url(@room, @theme), alert: "市民、残念！！　インサイダーの勝利です"
       end
     else #最多要素が複数個あったら
       redirect_to fase02answer_room_theme_url(@room, @theme), notice: "最多投票数が同率になりました。"+String(@maxAnswer)+"さんで決戦投票をしてください"
@@ -137,7 +137,12 @@ class ThemeController < ApplicationController
     @room = Room.find_by(id: params[:room_id])
   end
 
-  def fase0102bad #ファーズ02の正解したとき
+  def fase01bad #ファーズ02の正解したとき
+    @theme = Theme.find(params[:id])
+    @room = Room.find_by(id: params[:room_id])
+  end
+
+  def fase02bad #ファーズ02の正解したとき
     @theme = Theme.find(params[:id])
     @room = Room.find_by(id: params[:room_id])
   end
