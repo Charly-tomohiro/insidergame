@@ -6,21 +6,31 @@ class ThemeController < ApplicationController
   def show
     @theme = Theme.find(params[:id])
     @room = Room.find_by(id: params[:room_id])
+
+    seedArray = ["Insider", "Master"]
+    normalRoleArray=["Normal01","Normal02","Normal03","Normal04","Normal05","Normal06","Normal07"]
+    i = 2
+    if @theme.TagCheck == 1
+        seedArray.push("Tag1", "Tag2")
+        i = i+2
+    end
+    if @theme.CrazyCheck == 1
+        seedArray.push("Crazy")
+        i = i+1
+    end
+    if @theme.PeaceCheck == 1
+        seedArray.delete("Insider")
+        i = i-1
+    end
+    range = 0..@theme.Nop-i-1
+    range.each do |num|
+        seedArray.push(normalRoleArray[num])
+    end
+    @roleArray = seedArray
+
   end
 
   def new
-    @theme = Theme.new
-    @room = Room.find_by(id: params[:room_id])
-    @theme.theme_to_words.build
-  end
-
-  def new01
-    @theme = Theme.new
-    @room = Room.find_by(id: params[:room_id])
-    @theme.theme_to_words.build
-  end
-
-  def new02
     @theme = Theme.new
     @room = Room.find_by(id: params[:room_id])
     @theme.theme_to_words.build
@@ -30,9 +40,46 @@ class ThemeController < ApplicationController
     @theme = Theme.new(theme_params)
     @room = Room.find_by(id: params[:room_id])
     if @theme.save
-      redirect_to room_theme_url(@room, @theme)
+      redirect_to new02_room_theme_url(@room, @theme)
     else
       render action: :new
+    end
+  end
+
+  def new02
+    @theme = Theme.find(params[:id])
+    @room = Room.find_by(id: params[:room_id])
+    
+    seedArray = ["Insider", "Master"]
+    normalRoleArray=["Normal01","Normal02","Normal03","Normal04","Normal05","Normal06","Normal07"]
+    i = 2
+    if @theme.TagCheck == 1
+        seedArray.push("Tag1", "Tag2")
+        i = i+2
+    end
+    if @theme.CrazyCheck == 1
+        seedArray.push("Crazy")
+        i = i+1
+    end
+    if @theme.PeaceCheck == 1
+        seedArray.delete("Insider")
+        i = i-1
+    end
+    range = 0..@theme.Nop-i-1
+    range.each do |num|
+        seedArray.push(normalRoleArray[num])
+    end
+    @roleArray = seedArray
+
+  end
+
+  def new02update #new02のpach
+    @theme = Theme.find(params[:id])
+    @room = Room.find_by(id: params[:room_id])
+    if @theme.update_attributes(theme_params)
+      redirect_to room_theme_url(@room, @theme)
+    else
+      render action: new02_room_theme_url(@room, @theme), notice:"何かトラブルです"
     end
   end
 
@@ -149,6 +196,6 @@ class ThemeController < ApplicationController
 
   private
     def theme_params
-      params.require(:theme).permit(:room_id, :Insider,:Master,:Normal01,:Normal02,:Normal03,:Normal04,:Normal05,:Normal06,:Fase01Answer,:Answer01,:Answer02,:Answer03,:Answer04,:Answer05,:Answer06,:Answer07,:Answer08,:Fase01Time,:Title,:Nop)
+      params.require(:theme).permit(:room_id,:Insider,:Master,:Normal01,:Normal02,:Normal03,:Normal04,:Normal05,:Normal06,:Normal07,:Tag1,:Tag2,:Crazy,:Fase01Answer,:Answer01,:Answer02,:Answer03,:Answer04,:Answer05,:Answer06,:Answer07,:Answer08,:Fase01Time,:Title,:Nop,:PeaceCheck,:TagCheck,:CrazyCheck)
     end
 end

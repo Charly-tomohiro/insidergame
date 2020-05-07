@@ -1,64 +1,65 @@
 <div class="listnewPage">
   <div class="container">
-    <%= form_with model: @theme, url: { action: :create }, class: "new_list", local: true do |f| %>
-      <!-- room_idを非表示で格納する -->
-      <%= f.hidden_field :room_id, value: @room.id %>
+    <%= form_with model: @theme, url: new02update_room_theme_path, class: "new_list", local: true do |f| %>
 
-      <!-- Titleに、Wordモデル×ランダムで抽出したWordをを格納する -->
-      <%= f.hidden_field :Title, value: Word.offset(rand(Word.count)).first.Word %>
-
-      <!-- User01~08Nameに入っている数（Userの数）を出す -->
-      <% addUser = [@room.User05Name, @room.User06Name, @room.User07Name, @room.User08Name]%>
-      <% nop = addUser.count{ |num| !num.empty? }+4 %>
-      <h3 class="text-center">プレイヤー人数： <%= nop %> 名</h3>
-        <%= f.hidden_field :Nop, value: nop %>
+      <p class="text-center">下記の設定で宜しければ、次に進んでください</p>
       <!-- User01~08Roleをプレイヤー人数に合わせて取り出しシャッフルして格納する -->
+      <hr>
+      <div class="text-center">
+        <% if @theme.PeaceCheck == 0 and  @theme.PeaceCheck == 0 and @theme.TagCheck == 0 %>
+          <p>スタンダードモード（オプション役職なし）</p>
+        <% end %>
+
+        <% if @theme.PeaceCheck == 1 %>
+          <p>ノーインサイダー：ON</p>
+        <% end %>
+
+        <% if @theme.CrazyCheck == 1 %>
+          <p>クレイジー：ON</p>
+        <% end %>
+
+        <% if @theme.TagCheck == 1 %>
+          <p>タッグ：ON</p>
+        <% end %>
+        <hr>
+      </div>
+
+
       <% userRole = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
 
-      <% if nop == 4 %>
+      <%= @roleArray %>
+      <% range = 0..@roleArray.length-1 %><%# 役割の長さ %>
+
+      <% if @theme.Nop == 4 %>
         <% userRoleArray = userRole[0..3].shuffle%>
-        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
-        <%= f.hidden_field :Master, value: userRoleArray[1] %>
-        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
-        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
+        <% range.each do |num| %>
+          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
+        <% end %>
 
-      <% elsif nop == 5 %>
+      <% elsif @theme.Nop == 5 %>
         <% userRoleArray = userRole[0..4].shuffle%>
-        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
-        <%= f.hidden_field :Master, value: userRoleArray[1] %>
-        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
-        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
-        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
+        <% range.each do |num| %>
+          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
+        <% end %>
 
-      <% elsif nop == 6 %>
+      <% elsif @theme.Nop == 6 %>
         <% userRoleArray = userRole[0..5].shuffle%>
-        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
-        <%= f.hidden_field :Master, value: userRoleArray[1] %>
-        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
-        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
-        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
-        <%= f.hidden_field :Normal04, value: userRoleArray[5] %>
+        <% range.each do |num| %>
+          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
+        <% end %>
 
-      <% elsif nop == 7 %>
+      <% elsif @theme.Nop == 7 %>
         <% userRoleArray = userRole[0..6].shuffle%>
-        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
-        <%= f.hidden_field :Master, value: userRoleArray[1] %>
-        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
-        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
-        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
-        <%= f.hidden_field :Normal04, value: userRoleArray[5] %>
-        <%= f.hidden_field :Normal05, value: userRoleArray[6] %>
+        <% range.each do |num| %>
+          <% a = @roleArray[num] %>
+          <%= f.text_field :a, value: userRoleArray[num] %>
+        <% end %>
 
-      <% elsif nop == 8 %>
+      <% elsif @theme.Nop == 8 %>
         <% userRoleArray = userRole[0..7].shuffle%>
-        <%= f.hidden_field :Insider, value: userRoleArray[0] %>
-        <%= f.hidden_field :Master, value: userRoleArray[1] %>
-        <%= f.hidden_field :Normal01, value: userRoleArray[2] %>
-        <%= f.hidden_field :Normal02, value: userRoleArray[3] %>
-        <%= f.hidden_field :Normal03, value: userRoleArray[4] %>
-        <%= f.hidden_field :Normal04, value: userRoleArray[5] %>
-        <%= f.hidden_field :Normal05, value: userRoleArray[6] %>
-        <%= f.hidden_field :Normal06, value: userRoleArray[7] %>
+        <% range.each do |num| %>
+          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
+        <% end %>
 
       <% else %>
         <p>トラブルが起きました！ERROR！</p>
@@ -68,7 +69,7 @@
         <p class="text-danger">最初からやり直してください</p>
       <% end %>
 
-      <div class="text-center mt-5"><%= f.submit "確認", class: "submitBtn" %></div>
+      <div class="text-center mt-5"><%= f.submit "次へ", class: "submitBtn" %></div>
     <% end %>
   </div>
 </div>

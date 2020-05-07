@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       		get 'fase02good'
           get 'fase02bad'
       		get 'fase01bad'
-          get 'new01'
           get 'new02'
+          patch 'new02update'
     	end
     end
   end

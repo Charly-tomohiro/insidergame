@@ -4,9 +4,13 @@
         <p class="text-center">各自の役職を確認してください<br>
                                 ※ URL共有で各自デバイスにて確認可能</p>
         <!-- どこに01~08のデータが入っているかを確認する-->
-        <% roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06] %>
+        theme.Insider
+        <%= roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06, @theme.Normal07, @theme.Tag1, @theme.Tag2, @theme.Crazy] %>
         
-        <% roleArrayNew = roleArray[0..@theme.Nop-1]%>
+        room.User01Role
+        <%= add = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
+
+        <%= roleArrayNew = @roleArray %>
           <% user01Num = roleArrayNew.index("User01Role") %>
           <% user02Num = roleArrayNew.index("User02Role") %>
           <% user03Num = roleArrayNew.index("User03Role") %>
@@ -17,7 +21,7 @@
           <% user08Num = roleArrayNew.index("User08Role") %>
 
       <!-- 01~08までの役割を明示する -->
-      <% hashu = ["インサイダー（テーマ："+@theme.Title+"）", "マスター（テーマ："+@theme.Title+"）", "市民", "市民", "市民", "市民", "市民", "市民"] %>
+      <% hashu = ["インサイダー（テーマ："+@theme.Title+"）", "マスター（テーマ："+@theme.Title+"）", "市民", "市民", "市民", "市民", "市民", "市民", "タッグ"] %>
           <ul class="list-unstyled">
               <li>
                   <div class="d-flex justify-content-around">
@@ -34,7 +38,7 @@
                       <div class="modal-content">
                         <div class="modal-body">
                           <p class="text-center p-mb-5">
-                            <%= hashu[user01Num] %>
+                            <%= hashu[1] %>
                           </p>
                         </div>
                       </div>
@@ -56,7 +60,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user02Num] %>
+                          <%= hashu[2] %>
                         </p>
                       </div>
                     </div>
@@ -78,7 +82,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user03Num] %>
+                          <%= hashu[3] %>
                         </p>
                       </div>
                     </div>
@@ -100,7 +104,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user04Num] %>
+                          <%= hashu[4] %>
                         </p>
                       </div>
                     </div>
@@ -123,7 +127,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user05Num] %>
+                          <%= hashu[5] %>
                         </p>
                       </div>
                     </div>
@@ -147,7 +151,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user06Num] %>
+                          <%= hashu[6] %>
                         </p>
                       </div>
                     </div>
@@ -171,7 +175,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user07Num] %>
+                          <%= hashu[7] %>
                         </p>
                       </div>
                     </div>
@@ -195,7 +199,7 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <p class="text-center p-mb-5">
-                          <%= hashu[user08Num] %>
+                          <%= hashu[8] %>
                         </p>
                       </div>
                     </div>

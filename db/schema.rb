@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200504073625) do
+ActiveRecord::Schema.define(version: 20200507130205) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "User01Name", null: false
@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(version: 20200504073625) do
     t.integer "CrazyCheck"
     t.integer "TagCheck"
     t.integer "PeaceCheck"
+    t.string "Tag1", default: "Tag1"
+    t.string "Tag2", default: "Tag2"
+    t.string "Crazy", default: "Crazy"
+    t.string "Normal07", default: "Normal"
     t.index ["room_id"], name: "index_themes_on_room_id"
   end
 
