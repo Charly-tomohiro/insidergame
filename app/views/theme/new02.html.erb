@@ -9,64 +9,24 @@
         <% if @theme.PeaceCheck == 0 and  @theme.PeaceCheck == 0 and @theme.TagCheck == 0 %>
           <p>スタンダードモード（オプション役職なし）</p>
         <% end %>
-
         <% if @theme.PeaceCheck == 1 %>
           <p>ノーインサイダー：ON</p>
         <% end %>
-
         <% if @theme.CrazyCheck == 1 %>
           <p>クレイジー：ON</p>
         <% end %>
-
         <% if @theme.TagCheck == 1 %>
           <p>タッグ：ON</p>
         <% end %>
         <hr>
       </div>
 
-
       <% userRole = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
-
-      <%= @roleArray %>
       <% range = 0..@roleArray.length-1 %><%# 役割の長さ %>
-
-      <% if @theme.Nop == 4 %>
-        <% userRoleArray = userRole[0..3].shuffle%>
-        <% range.each do |num| %>
-          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
-        <% end %>
-
-      <% elsif @theme.Nop == 5 %>
-        <% userRoleArray = userRole[0..4].shuffle%>
-        <% range.each do |num| %>
-          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
-        <% end %>
-
-      <% elsif @theme.Nop == 6 %>
-        <% userRoleArray = userRole[0..5].shuffle%>
-        <% range.each do |num| %>
-          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
-        <% end %>
-
-      <% elsif @theme.Nop == 7 %>
-        <% userRoleArray = userRole[0..6].shuffle%>
-        <% range.each do |num| %>
-          <% a = @roleArray[num] %>
-          <%= f.text_field :a, value: userRoleArray[num] %>
-        <% end %>
-
-      <% elsif @theme.Nop == 8 %>
-        <% userRoleArray = userRole[0..7].shuffle%>
-        <% range.each do |num| %>
-          <%= f.text_field :@roleArray[num], value: userRoleArray[num] %>
-        <% end %>
-
-      <% else %>
-        <p>トラブルが起きました！ERROR！</p>
-      <% end %>  
       
-      <% if @theme.errors.any? %>
-        <p class="text-danger">最初からやり直してください</p>
+      <% userRoleArray = userRole[0..@theme.Nop-1].shuffle%>
+      <% range.each do |num| %>
+        <%= f.hidden_field "#{@roleArray[num]}", value: userRoleArray[num] %>
       <% end %>
 
       <div class="text-center mt-5"><%= f.submit "次へ", class: "submitBtn" %></div>

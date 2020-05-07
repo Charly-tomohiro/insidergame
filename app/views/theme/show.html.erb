@@ -6,11 +6,12 @@
         <!-- どこに01~08のデータが入っているかを確認する-->
         theme.Insider
         <%= roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06, @theme.Normal07, @theme.Tag1, @theme.Tag2, @theme.Crazy] %>
-        
+
         room.User01Role
         <%= add = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
 
         <%= roleArrayNew = @roleArray %>
+        <% [*1..8].each do |num| %>
           <% user01Num = roleArrayNew.index("User01Role") %>
           <% user02Num = roleArrayNew.index("User02Role") %>
           <% user03Num = roleArrayNew.index("User03Role") %>
@@ -19,7 +20,7 @@
           <% user06Num = roleArrayNew.index("User06Role") %>
           <% user07Num = roleArrayNew.index("User07Role") %>
           <% user08Num = roleArrayNew.index("User08Role") %>
-
+        <% end %>
       <!-- 01~08までの役割を明示する -->
       <% hashu = ["インサイダー（テーマ："+@theme.Title+"）", "マスター（テーマ："+@theme.Title+"）", "市民", "市民", "市民", "市民", "市民", "市民", "タッグ"] %>
           <ul class="list-unstyled">
@@ -32,18 +33,19 @@
                       確認する
                     </p>
                   </div>
-                  <!-- モーダル・ダイアログ -->
-                  <div class="modal fade" id="Modal01" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                      <div class="modal-content">
-                        <div class="modal-body">
-                          <p class="text-center p-mb-5">
-                            <%= hashu[1] %>
-                          </p>
+                  <% [*1..8].each do |n|%>
+                    <div class="modal fade" id=<%= "Modal0#{n}"%> tabindex="-1">
+                      <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
+                        <div class="modal-content">
+                          <div class="modal-body">
+                            <p class="text-center p-mb-5">
+                              <%= hashu[n] %>
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  <% end%>
               </li>
               <li>
                 <div class="d-flex flex-row">
@@ -53,18 +55,6 @@
                   <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal02" data-keyboard="true">
                     確認する
                   </p>
-                </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal02" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[2] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
                 </div>
               </li>
               <li>
@@ -76,19 +66,6 @@
                     確認する
                   </p>
                 </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal03" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[3] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
-                </div>
-              </li>
               <li>
                 <div class="d-flex flex-row">
                   <div class="btn btn-redBlack">
@@ -97,18 +74,6 @@
                   <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal04" data-keyboard="true">
                     確認する
                   </p>
-                </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal04" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[4] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
                 </div>
               </li>
             <% if !user05Num.nil? %>
@@ -120,18 +85,6 @@
                   <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal05" data-keyboard="true">
                     確認する
                   </p>
-                </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal05" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[5] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
                 </div>
               </li>
             <% end %>
@@ -145,18 +98,6 @@
                     確認する
                   </p>
                 </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal06" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[6] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
-                </div>
               </li>
             <% end %>
             <% if !user07Num.nil? %>
@@ -169,18 +110,6 @@
                     確認する
                   </p>
                 </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal07" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[7] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
-                </div>
               </li>
             <% end %>
             <% if !user08Num.nil? %>
@@ -192,18 +121,6 @@
                   <p class="btn btn-blackRed" data-toggle="modal" data-target="#Modal08" data-keyboard="true">
                     確認する
                   </p>
-                </div>
-                <!-- モーダル・ダイアログ -->
-                <div class="modal fade" id="Modal08" tabindex="-1">
-                  <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <p class="text-center p-mb-5">
-                          <%= hashu[8] %>
-                        </p>
-                      </div>
-                    </div>
-                   </div>
                 </div>
               </li>
             <% end %>
