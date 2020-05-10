@@ -3,26 +3,11 @@
       <div class="mx-auto　w-75" style="margin-top: 150px">
         <p class="text-center">各自の役職を確認してください<br>
                                 ※ URL共有で各自デバイスにて確認可能</p>
-        <!-- どこに01~08のデータが入っているかを確認する-->
-        theme.Insider
-        <%= roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06, @theme.Normal07, @theme.Tag1, @theme.Tag2, @theme.Crazy] %>
+        <!-- どこに01~08のデータが入っているかを宣言しておく-->
+        <% roleArray = [@theme.Insider, @theme.Master, @theme.Normal01, @theme.Normal02, @theme.Normal03, @theme.Normal04, @theme.Normal05, @theme.Normal06, @theme.Normal07, @theme.Tag1, @theme.Tag2, @theme.Crazy] %>
+        <% userName = [@room.User01Name, @room.User02Name, @room.User03Name, @room.User04Name, @room.User05Name, @room.User06Name, @room.User07Name, @room.User08Name] %>
+        <% userRole = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
 
-        room.User01Role
-        <%= add = [@room.User01Role, @room.User02Role, @room.User03Role, @room.User04Role, @room.User05Role, @room.User06Role, @room.User07Role, @room.User08Role] %>
-
-        <%= roleArrayNew = @roleArray %>
-        <% [*1..8].each do |num| %>
-          <% user01Num = roleArrayNew.index("User01Role") %>
-          <% user02Num = roleArrayNew.index("User02Role") %>
-          <% user03Num = roleArrayNew.index("User03Role") %>
-          <% user04Num = roleArrayNew.index("User04Role") %>
-          <% user05Num = roleArrayNew.index("User05Role") %>
-          <% user06Num = roleArrayNew.index("User06Role") %>
-          <% user07Num = roleArrayNew.index("User07Role") %>
-          <% user08Num = roleArrayNew.index("User08Role") %>
-        <% end %>
-      <!-- 01~08までの役割を明示する -->
-      <% hashu = ["インサイダー（テーマ："+@theme.Title+"）", "マスター（テーマ："+@theme.Title+"）", "市民", "市民", "市民", "市民", "市民", "市民", "タッグ"] %>
           <ul class="list-unstyled">
               <li>
                   <div class="d-flex justify-content-around">
@@ -33,13 +18,26 @@
                       確認する
                     </p>
                   </div>
-                  <% [*1..8].each do |n|%>
+                  <% [*1..@theme.Nop].each do |n|%>
                     <div class="modal fade" id=<%= "Modal0#{n}"%> tabindex="-1">
                       <div class="modal-dialog modal-dialog-centered"><!-- modal-dialog-centeredのクラス追加で真ん中になる -->
                         <div class="modal-content">
                           <div class="modal-body">
                             <p class="text-center p-mb-5">
-                              <%= hashu[n] %>
+                              <% pry = roleArray.index("User0#{n}Role")%>
+                              <%= @hashu[pry] %>
+                              <% if pry == 9 %>
+                                <% oo = userRole.index(roleArray[10]) %>
+                                <br>ペアは、<%= userName[oo] %>
+                              <% end %>
+                              <% if pry == 10 %>
+                                <% oo = userRole.index(roleArray[9]) %>
+                                <br>ペアは、<%= userName[oo] %>
+                              <% end %>
+                              <% if pry == 11 %>
+                                <% oo = userRole.index(roleArray[0]) %>
+                                <br>インサイダーは、<%= userName[oo] %>
+                              <% end %>
                             </p>
                           </div>
                         </div>
@@ -76,7 +74,7 @@
                   </p>
                 </div>
               </li>
-            <% if !user05Num.nil? %>
+            <% if !roleArray.index("User05Role").nil? %>
                <li>
                 <div class="d-flex flex-row">
                   <div class="btn btn-redBlack">
@@ -88,7 +86,7 @@
                 </div>
               </li>
             <% end %>
-            <% if !user06Num.nil? %>
+            <% if !roleArray.index("User06Role").nil? %>
               <li>
                 <div class="d-flex flex-row">
                   <div class="btn btn-redBlack">
@@ -100,7 +98,7 @@
                 </div>
               </li>
             <% end %>
-            <% if !user07Num.nil? %>
+            <% if !roleArray.index("User07Role").nil? %>
               <li>
                 <div class="d-flex flex-row">
                   <div class="btn btn-redBlack">
@@ -112,7 +110,7 @@
                 </div>
               </li>
             <% end %>
-            <% if !user08Num.nil? %>
+            <% if !roleArray.index("User08Role").nil? %>
               <li>
                 <div class="d-flex flex-row">
                   <div class="btn btn-redBlack">
